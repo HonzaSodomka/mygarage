@@ -32,7 +32,7 @@ const brands = [
            class="text-base lg:text-lg font-light text-zinc-700 leading-relaxed">
           Jsme nezávislý autoservis zaměřený na prémiové vozy. Zázemí a vybavení na úrovni autorizovaného servisu — bez dealerské přirážky.
         </p>
-        <a href="#kontakt"
+        <a href="/kontakt"
            style="font-family:'DM Sans',sans-serif;"
            class="inline-flex items-center gap-3 self-start bg-[#00478F] hover:bg-[#003d7a] text-white text-xs font-medium uppercase tracking-[0.18em] px-7 py-3.5 transition-colors relative overflow-hidden group">
           <span class="absolute left-0 inset-y-0 w-[3px] bg-[#E10600]"></span>
@@ -57,7 +57,6 @@ const brands = [
         ].map((item, i) => (
           <div class={`flex flex-col gap-1.5 px-5 lg:px-10 py-8 lg:py-12
             ${i === 0 ? 'border-r border-white/10' : ''}
-            ${i === 1 ? '' : ''}
             ${i === 2 ? 'border-r border-white/10 border-t border-white/10 lg:border-t-0 lg:border-l lg:border-white/10' : ''}
             ${i === 3 ? 'border-t border-white/10 lg:border-t-0 lg:border-l lg:border-white/10' : ''}
           `}>
@@ -65,12 +64,14 @@ const brands = [
                   class="font-black uppercase text-white leading-none">
               {item.num}
             </span>
+            <!-- /90 = ~7.8:1 na #00478F ✅ -->
             <span style="font-family:'DM Sans',sans-serif;"
                   class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90">
               {item.label}
             </span>
+            <!-- /70 = ~5.5:1 na #00478F ✅ (bylo /50 = ~3.6:1 ❌) -->
             <span style="font-family:'DM Sans',sans-serif;"
-                  class="text-[11px] text-white/50">
+                  class="text-[11px] text-white/70">
               {item.sub}
             </span>
           </div>
@@ -83,7 +84,7 @@ const brands = [
   <div class="max-w-7xl mx-auto px-5 lg:px-12 py-12 lg:py-24">
     <div class="grid lg:grid-cols-3 gap-5 lg:gap-6">
 
-      <!-- BMW karta — na mobilu první, plná šířka -->
+      <!-- BMW karta -->
       <div class="flex flex-col gap-5 lg:gap-6">
         <h3 style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(1.6rem, 2.5vw, 2.5rem);"
             class="font-black uppercase leading-[1.05] tracking-tight text-zinc-950">
@@ -91,16 +92,18 @@ const brands = [
         </h3>
         <div class="bg-[#0d1f3c] px-7 py-8 flex flex-col gap-4 relative overflow-hidden flex-1">
           <div class="absolute top-0 left-0 w-[3px] h-full bg-[#E10600]"></div>
+          <!-- /60 = ~4.9:1 na #0d1f3c ✅ (bylo /40 = ~3.2:1 ❌) -->
           <span style="font-family:'DM Sans',sans-serif;"
-                class="text-[10px] font-medium uppercase tracking-[0.25em] text-white/40 ml-3">
+                class="text-[10px] font-medium uppercase tracking-[0.25em] text-white/60 ml-3">
             Autorizovaná alternativa
           </span>
           <h4 style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(1.7rem, 2.5vw, 2.4rem);"
               class="font-black uppercase leading-[1.05] text-white ml-3">
             Servis BMW<br/>v záruce výrobce
           </h4>
+          <!-- /75 = ~6.2:1 na #0d1f3c ✅ (bylo /55 = ~4.4:1 ❌) -->
           <p style="font-family:'DM Sans',sans-serif;"
-             class="text-sm text-white/55 leading-relaxed ml-3">
+             class="text-sm text-white/75 leading-relaxed ml-3">
             BMW AOS Aftersales — zápis do ESH, záruka zachována.
           </p>
         </div>
@@ -145,7 +148,8 @@ const brands = [
              class="block overflow-hidden group">
             <img src="/playboy.jpg" alt="Playboy — psali o nás"
                  class="w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                 style="aspect-ratio: 4/3;" />
+                 style="aspect-ratio: 4/3;"
+                 loading="lazy" />
           </a>
         </div>
         <div class="border border-zinc-200 px-6 py-6 flex flex-col items-center justify-center gap-5 text-center">
@@ -154,8 +158,8 @@ const brands = [
             Používáme oleje
           </span>
           <div class="flex items-center justify-center gap-8">
-            <img src="/logo-shell.png" alt="Shell" class="h-10 lg:h-14 w-auto object-contain" />
-            <img src="/logo-liquimoly.png" alt="Liqui Moly" class="h-10 lg:h-14 w-auto object-contain" />
+            <img src="/logo-shell.png" alt="Shell" class="h-10 lg:h-14 w-auto object-contain" loading="lazy" />
+            <img src="/logo-liquimoly.png" alt="Liqui Moly" class="h-10 lg:h-14 w-auto object-contain" loading="lazy" />
           </div>
         </div>
       </div>
@@ -178,7 +182,8 @@ const brands = [
         {brands.map(b => (
           <div class="group flex flex-col items-center justify-center gap-3 py-10 px-3 hover:bg-zinc-50 transition-all duration-300 cursor-default">
             <img src={b.src} alt={b.alt}
-                 class="h-16 w-auto max-w-full object-contain transition-transform duration-300 group-hover:-translate-y-1" />
+                 class="h-16 w-auto max-w-full object-contain transition-transform duration-300 group-hover:-translate-y-1"
+                 loading="lazy" />
             <span style="font-family:'DM Sans',sans-serif;"
                   class="text-[9px] font-medium uppercase tracking-[0.15em] text-zinc-400 group-hover:text-zinc-600 transition-colors duration-300 text-center leading-tight">
               {b.alt}
@@ -187,13 +192,14 @@ const brands = [
         ))}
       </div>
 
-      <!-- Mobil: řada 1 = 3 loga, řada 2 = 4 loga, každá pokrývá plnou šířku -->
+      <!-- Mobil: řada 1 = 3 loga, řada 2 = 4 loga -->
       <div class="lg:hidden">
         <div class="grid grid-cols-3 divide-x divide-zinc-100 border-b border-zinc-100">
           {brands.slice(0, 3).map(b => (
             <div class="group flex flex-col items-center justify-center gap-2 py-7 px-3 hover:bg-zinc-50 transition-all duration-300 cursor-default">
               <img src={b.src} alt={b.alt}
-                   class="h-10 w-auto max-w-full object-contain" />
+                   class="h-10 w-auto max-w-full object-contain"
+                   loading="lazy" />
               <span style="font-family:'DM Sans',sans-serif;"
                     class="text-[8px] font-medium uppercase tracking-[0.12em] text-zinc-400 text-center leading-tight">
                 {b.alt}
@@ -205,7 +211,8 @@ const brands = [
           {brands.slice(3).map(b => (
             <div class="group flex flex-col items-center justify-center gap-2 py-7 px-2 hover:bg-zinc-50 transition-all duration-300 cursor-default">
               <img src={b.src} alt={b.alt}
-                   class="h-8 w-auto max-w-full object-contain" />
+                   class="h-8 w-auto max-w-full object-contain"
+                   loading="lazy" />
               <span style="font-family:'DM Sans',sans-serif;"
                     class="text-[7px] font-medium uppercase tracking-[0.1em] text-zinc-400 text-center leading-tight">
                 {b.alt}
@@ -233,17 +240,19 @@ const brands = [
       {[1,2,3,4,5,6,7,8,9].map(i => (
         <div class="overflow-hidden group" style="aspect-ratio: 4/3;">
           <img src={`/gallery${i}.jpg`} alt={`My Garage — foto dílny ${i}`}
-               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+               loading="lazy" />
         </div>
       ))}
     </div>
 
-    <!-- Mobil: 2x grid -->
+    <!-- Mobil: první obrázek přes celou šířku, zbytek 2x grid -->
     <div class="lg:hidden grid grid-cols-2 gap-1.5">
       {[1,2,3,4,5,6,7,8,9].map(i => (
-        <div class="overflow-hidden group" style="aspect-ratio: 4/3;">
+        <div class={`overflow-hidden group${i === 1 ? ' col-span-2' : ''}`} style="aspect-ratio: 4/3;">
           <img src={`/gallery${i}.jpg`} alt={`My Garage — foto dílny ${i}`}
-               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+               loading="lazy" />
         </div>
       ))}
     </div>
@@ -254,13 +263,13 @@ const brands = [
   <div class="bg-zinc-950 relative z-10" style="isolation: isolate; transform: translateZ(0);">
     <div class="max-w-7xl mx-auto px-5 lg:px-12 py-14 lg:py-20">
 
-      <!-- Header -->
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8 lg:mb-10">
         <div class="flex flex-col gap-3">
           <div class="flex items-center gap-3">
             <div class="w-6 h-px bg-[#E10600]"></div>
+            <!-- /60 = ~4.9:1 na zinc-950 ✅ (bylo /40 = ~3.2:1 ❌) -->
             <span style="font-family:'DM Sans',sans-serif;"
-                  class="text-[10px] font-medium uppercase tracking-[0.28em] text-white/40">
+                  class="text-[10px] font-medium uppercase tracking-[0.28em] text-white/60">
               Video
             </span>
           </div>
@@ -272,7 +281,7 @@ const brands = [
         <a href="https://youtu.be/7tJ4IOecXP8"
            target="_blank"
            style="font-family:'DM Sans',sans-serif;"
-           class="inline-flex items-center gap-2 self-start lg:self-auto border border-white/20 hover:border-white/50 text-white/50 hover:text-white text-[10px] font-medium uppercase tracking-[0.18em] px-5 py-2.5 transition-all duration-200 group/btn flex-shrink-0">
+           class="inline-flex items-center gap-2 self-start lg:self-auto border border-white/20 hover:border-white/50 text-white/60 hover:text-white text-[10px] font-medium uppercase tracking-[0.18em] px-5 py-2.5 transition-all duration-200 group/btn flex-shrink-0">
           Otevřít na YouTube
           <svg class="w-3 h-3 transition-transform duration-200 group-hover/btn:translate-x-1" viewBox="0 0 12 12" fill="none">
             <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

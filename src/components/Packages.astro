@@ -92,18 +92,16 @@ const packages = [
       {packages.map((pkg, i) => (
         <div class="pkg-item" data-i={i}>
 
-          <!-- Trigger -->
           <button
             class="pkg-trigger w-full flex items-center gap-4 lg:gap-8 py-5 lg:py-6 border-t border-zinc-100 text-left group"
             aria-expanded="false"
           >
-            <!-- ID — velké, dekorativní -->
+            <!-- Dekorativní ID — záměrně ztlumené, info je v titulu -->
             <span style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem);"
                   class="font-black uppercase text-zinc-200 group-hover:text-[#00478F] transition-colors duration-150 w-14 lg:w-20 flex-shrink-0 leading-none tabular-nums">
               {pkg.id}
             </span>
 
-            <!-- Title + tag -->
             <div class="flex-1 flex flex-col gap-1.5">
               <span style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(1.1rem, 1.8vw, 1.5rem);"
                     class="font-black uppercase tracking-tight leading-none text-zinc-950 group-hover:text-[#00478F] transition-colors duration-150">
@@ -117,27 +115,24 @@ const packages = [
               )}
             </div>
 
-            <!-- Počet položek — skryje se při otevření -->
+            <!-- zinc-500 = 4.58:1 ✅ (bylo zinc-400 = 2.57:1 ❌) -->
             <span style="font-family:'DM Sans',sans-serif;"
-                  class="pkg-count hidden lg:block text-xs font-medium text-zinc-400 flex-shrink-0 transition-opacity duration-200">
+                  class="pkg-count hidden lg:block text-xs font-medium text-zinc-500 flex-shrink-0 transition-opacity duration-200">
               {pkg.items.length} položek
             </span>
 
-            <!-- Price -->
             <span style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(1.1rem, 2vw, 1.6rem);"
                   class="font-black uppercase text-zinc-950 flex-shrink-0 text-right min-w-[100px] lg:min-w-[130px] tabular-nums">
               {pkg.price}
             </span>
 
-            <!-- Chevron -->
             <div class="pkg-chevron w-8 h-8 border border-zinc-200 group-hover:border-[#00478F] flex items-center justify-center flex-shrink-0 transition-all duration-200">
-              <svg class="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#00478F] transition-all duration-300" viewBox="0 0 14 14" fill="none">
+              <svg class="w-3.5 h-3.5 text-zinc-500 group-hover:text-[#00478F] transition-all duration-300" viewBox="0 0 14 14" fill="none">
                 <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
           </button>
 
-          <!-- Body -->
           <div class="pkg-body overflow-hidden" style="max-height:0; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);">
             <div class="pb-10 pl-14 lg:pl-28 border-t border-zinc-50 pt-6">
 
@@ -167,7 +162,6 @@ const packages = [
         </div>
       ))}
 
-      <!-- Poslední border -->
       <div class="border-t border-zinc-100"></div>
     </div>
 
@@ -202,23 +196,11 @@ const packages = [
 <script>
   document.querySelectorAll('.pkg-trigger').forEach(btn => {
     btn.addEventListener('click', () => {
-      const item   = btn.closest('.pkg-item');
-      const body   = item?.querySelector('.pkg-body') as HTMLElement | null;
+      const item    = btn.closest('.pkg-item');
+      const body    = item?.querySelector('.pkg-body') as HTMLElement | null;
       const chevron = btn.querySelector('.pkg-chevron');
-      const count  = btn.querySelector('.pkg-count') as HTMLElement | null;
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
-
-      // Zavři ostatní
-      document.querySelectorAll('.pkg-trigger[aria-expanded="true"]').forEach(other => {
-        if (other === btn) return;
-        other.setAttribute('aria-expanded', 'false');
-        const ob = other.closest('.pkg-item')?.querySelector('.pkg-body') as HTMLElement | null;
-        if (ob) ob.style.maxHeight = '0';
-        const oc = other.querySelector('.pkg-chevron svg');
-        if (oc) (oc as HTMLElement).style.transform = '';
-        const ocount = other.querySelector('.pkg-count') as HTMLElement | null;
-        if (ocount) ocount.style.opacity = '1';
-      });
+      const count   = btn.querySelector('.pkg-count') as HTMLElement | null;
+      const isOpen  = btn.getAttribute('aria-expanded') === 'true';
 
       if (isOpen) {
         btn.setAttribute('aria-expanded', 'false');

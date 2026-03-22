@@ -7,6 +7,14 @@ const navItems = [
   { label: 'Ceník',   href: '/cenik'   },
   { label: 'Kontakt', href: '/kontakt' },
 ];
+
+const currentPath = Astro.url.pathname;
+
+// Přesná shoda pro homepage, prefix match pro ostatní
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath === href || currentPath.startsWith(href + '/');
+}
 ---
 
 <header class="bg-white sticky top-0 z-50 antialiased shadow-sm flex flex-col">
@@ -32,8 +40,18 @@ const navItems = [
 
     <nav class="hidden lg:flex items-center gap-9 ml-auto mr-8">
       {navItems.map(item => (
-        <a href={item.href} class="text-[13px] font-bold uppercase tracking-[0.1em] text-zinc-800 hover:text-[#E10600] transition-colors">
+        <a
+          href={item.href}
+          class={`text-[13px] font-bold uppercase tracking-[0.1em] transition-colors relative
+            ${isActive(item.href)
+              ? 'text-[#E10600]'
+              : 'text-zinc-800 hover:text-[#E10600]'
+            }`}
+        >
           {item.label}
+          {isActive(item.href) && (
+            <span class="absolute -bottom-[22px] left-0 right-0 h-[2px] bg-[#E10600]"></span>
+          )}
         </a>
       ))}
     </nav>
@@ -59,8 +77,18 @@ const navItems = [
   <div id="mobile-menu" class="lg:hidden absolute w-full left-0 top-full bg-white border-t border-zinc-100 shadow-2xl transition-all duration-300 ease-out origin-top -translate-y-4 opacity-0 pointer-events-none z-10">
     <nav class="flex flex-col">
       {navItems.map(item => (
-        <a href={item.href} class="text-sm font-bold uppercase tracking-widest py-4 px-8 border-b border-zinc-100 text-zinc-800 hover:text-[#E10600] transition-colors">
+        <a
+          href={item.href}
+          class={`text-sm font-bold uppercase tracking-widest py-4 px-8 border-b border-zinc-100 transition-colors flex items-center justify-between
+            ${isActive(item.href)
+              ? 'text-[#E10600] bg-red-50/50'
+              : 'text-zinc-800 hover:text-[#E10600]'
+            }`}
+        >
           {item.label}
+          {isActive(item.href) && (
+            <span class="w-1.5 h-1.5 rounded-full bg-[#E10600] flex-shrink-0"></span>
+          )}
         </a>
       ))}
       <div class="px-8 py-6 flex justify-center">

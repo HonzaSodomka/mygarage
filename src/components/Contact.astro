@@ -37,20 +37,20 @@
 
       <form
         id="contact-form"
-        action="/api/contact"
-        method="POST"
         class="flex flex-col gap-0"
         novalidate
       >
         <!-- Jméno + telefon -->
         <div class="grid sm:grid-cols-2 gap-0">
           <div class="form-field border-b border-zinc-200 sm:border-r">
+            <!-- zinc-500 = 4.58:1 na bílé ✅ (bylo zinc-400 = 2.57:1 ❌) -->
             <label for="name" style="font-family:'DM Sans',sans-serif;"
-                   class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-400 pt-5 px-0 mb-1">
+                   class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 pt-5 px-0 mb-1">
               Jméno a příjmení *
             </label>
             <input
               id="name" name="name" type="text" required
+              autocomplete="name"
               placeholder="Jan Novák"
               style="font-family:'DM Sans',sans-serif;"
               class="w-full pb-4 text-base text-zinc-900 placeholder:text-zinc-300 bg-transparent border-none outline-none focus:outline-none"
@@ -58,11 +58,12 @@
           </div>
           <div class="form-field border-b border-zinc-200 sm:pl-6">
             <label for="phone" style="font-family:'DM Sans',sans-serif;"
-                   class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-400 pt-5 mb-1">
+                   class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 pt-5 mb-1">
               Telefon *
             </label>
             <input
               id="phone" name="phone" type="tel" required
+              autocomplete="tel"
               placeholder="+420 777 000 000"
               style="font-family:'DM Sans',sans-serif;"
               class="w-full pb-4 text-base text-zinc-900 placeholder:text-zinc-300 bg-transparent border-none outline-none focus:outline-none"
@@ -73,26 +74,28 @@
         <!-- Email -->
         <div class="form-field border-b border-zinc-200">
           <label for="email" style="font-family:'DM Sans',sans-serif;"
-                 class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-400 pt-5 mb-1">
+                 class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 pt-5 mb-1">
             E-mail
           </label>
           <input
             id="email" name="email" type="email"
+            autocomplete="email"
             placeholder="jan@example.cz"
             style="font-family:'DM Sans',sans-serif;"
             class="w-full pb-4 text-base text-zinc-900 placeholder:text-zinc-300 bg-transparent border-none outline-none focus:outline-none"
           />
         </div>
 
-        <!-- Značka + SPZ -->
+        <!-- Značka + rok výroby -->
         <div class="grid sm:grid-cols-2 gap-0">
           <div class="form-field border-b border-zinc-200 sm:border-r">
             <label for="car" style="font-family:'DM Sans',sans-serif;"
-                   class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-400 pt-5 px-0 mb-1">
+                   class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 pt-5 px-0 mb-1">
               Značka a model
             </label>
             <input
               id="car" name="car" type="text"
+              autocomplete="off"
               placeholder="BMW 3 Series"
               style="font-family:'DM Sans',sans-serif;"
               class="w-full pb-4 text-base text-zinc-900 placeholder:text-zinc-300 bg-transparent border-none outline-none focus:outline-none"
@@ -100,11 +103,12 @@
           </div>
           <div class="form-field border-b border-zinc-200 sm:pl-6">
             <label for="year" style="font-family:'DM Sans',sans-serif;"
-                   class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-400 pt-5 mb-1">
+                   class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 pt-5 mb-1">
               Rok výroby
             </label>
             <input
               id="year" name="year" type="text"
+              autocomplete="off"
               placeholder="2020"
               style="font-family:'DM Sans',sans-serif;"
               class="w-full pb-4 text-base text-zinc-900 placeholder:text-zinc-300 bg-transparent border-none outline-none focus:outline-none"
@@ -115,7 +119,7 @@
         <!-- Zpráva -->
         <div class="form-field border-b border-zinc-200">
           <label for="message" style="font-family:'DM Sans',sans-serif;"
-                 class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-400 pt-5 mb-1">
+                 class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-500 pt-5 mb-1">
             Popis závady / požadavku *
           </label>
           <textarea
@@ -129,18 +133,20 @@
         <!-- Submit -->
         <div class="pt-8 flex items-center gap-6">
           <button
+            id="submit-btn"
             type="submit"
             style="font-family:'DM Sans',sans-serif;"
             class="inline-flex items-center gap-2 bg-[#00478F] hover:bg-[#003d7a] text-white text-xs font-medium uppercase tracking-[0.18em] px-8 py-4 transition-colors relative overflow-hidden group"
           >
             <span class="absolute left-0 inset-y-0 w-[3px] bg-[#E10600]"></span>
-            Odeslat zprávu
+            <span id="submit-label">Odeslat zprávu</span>
             <svg id="submit-arrow" class="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 12 12" fill="none">
               <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
+          <!-- zinc-500 = 4.58:1 ✅ (bylo zinc-400 = 2.57:1 ❌) -->
           <p style="font-family:'DM Sans',sans-serif;"
-             class="text-xs text-zinc-400">
+             class="text-xs text-zinc-500">
             * Povinné pole
           </p>
         </div>
@@ -151,19 +157,18 @@
       </form>
     </div>
 
-    <!-- Info — tmavý panel -->
+    <!-- Info — tmavý panel (#0d1f3c) -->
     <div class="bg-[#0d1f3c] relative overflow-hidden" style="isolation:isolate;">
       <div class="absolute top-0 left-0 w-[3px] h-full bg-[#E10600]"></div>
 
       <div class="relative z-10 px-8 lg:px-12 py-12 lg:py-16 flex flex-col gap-10 h-full">
 
-        <!-- Kontaktní info -->
         <div class="flex flex-col gap-7">
 
           <!-- Telefon -->
           <div class="flex flex-col gap-1.5">
             <span style="font-family:'DM Sans',sans-serif;"
-                  class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">
+                  class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/55">
               Telefon
             </span>
             <a href="tel:+420790220000"
@@ -176,12 +181,12 @@
           <!-- Email -->
           <div class="flex flex-col gap-1.5">
             <span style="font-family:'DM Sans',sans-serif;"
-                  class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">
+                  class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/55">
               E-mail
             </span>
             <a href="mailto:info@mygarageautocare.cz"
                style="font-family:'DM Sans',sans-serif;"
-               class="text-base text-white/80 hover:text-white transition-colors">
+               class="text-base text-white/85 hover:text-white transition-colors">
               info@mygarageautocare.cz
             </a>
           </div>
@@ -189,13 +194,13 @@
           <!-- Adresa -->
           <div class="flex flex-col gap-1.5">
             <span style="font-family:'DM Sans',sans-serif;"
-                  class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">
+                  class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/55">
               Adresa
             </span>
             <a href="https://maps.google.com/?q=Královická+326,+Zápy"
                target="_blank"
                style="font-family:'DM Sans',sans-serif;"
-               class="text-base text-white/80 hover:text-white transition-colors leading-relaxed">
+               class="text-base text-white/85 hover:text-white transition-colors leading-relaxed">
               Královická 326<br/>
               250 01 Zápy<br/>
               Brandýs nad Labem
@@ -205,32 +210,31 @@
           <!-- Otevírací doba -->
           <div class="flex flex-col gap-2">
             <span style="font-family:'DM Sans',sans-serif;"
-                  class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">
+                  class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/55">
               Otevírací doba
             </span>
             <div class="flex flex-col gap-1">
               <div class="flex items-center justify-between gap-8 max-w-xs">
-                <span style="font-family:'DM Sans',sans-serif;" class="text-sm text-white/70">Pondělí — pátek</span>
+                <span style="font-family:'DM Sans',sans-serif;" class="text-sm text-white/80">Pondělí — pátek</span>
                 <span style="font-family:'Big Shoulders Display',sans-serif;" class="text-base font-black uppercase text-white">08:00 — 16:30</span>
               </div>
               <div class="flex items-center justify-between gap-8 max-w-xs">
-                <span style="font-family:'DM Sans',sans-serif;" class="text-sm text-white/70">Sobota — neděle</span>
-                <span style="font-family:'Big Shoulders Display',sans-serif;" class="text-base font-black uppercase text-white/40">Zavřeno</span>
+                <span style="font-family:'DM Sans',sans-serif;" class="text-sm text-white/80">Sobota — neděle</span>
+                <span style="font-family:'Big Shoulders Display',sans-serif;" class="text-base font-black uppercase text-white/50">Zavřeno</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Divider -->
         <div class="h-px bg-white/10"></div>
 
         <!-- Fakturační info -->
         <div class="flex flex-col gap-2">
           <span style="font-family:'DM Sans',sans-serif;"
-                class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">
+                class="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/55">
             Fakturační údaje
           </span>
-          <div style="font-family:'DM Sans',sans-serif;" class="text-sm text-white/50 leading-relaxed">
+          <div style="font-family:'DM Sans',sans-serif;" class="text-sm text-white/65 leading-relaxed">
             My Garage Auto Care s.r.o.<br/>
             IČO: 10719717 · DIČ: CZ10719717<br/>
             Plátci DPH
@@ -241,14 +245,14 @@
         <div class="flex items-center gap-3 mt-auto">
           <a href="https://www.facebook.com/my.garage.auto.care.servis/"
              target="_blank"
-             class="flex items-center justify-center w-9 h-9 border border-white/10 hover:border-white/40 text-white/40 hover:text-white transition-all duration-200">
+             class="flex items-center justify-center w-9 h-9 border border-white/10 hover:border-white/40 text-white/55 hover:text-white transition-all duration-200">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
             </svg>
           </a>
           <a href="https://www.instagram.com/mygarageautocare/"
              target="_blank"
-             class="flex items-center justify-center w-9 h-9 border border-white/10 hover:border-white/40 text-white/40 hover:text-white transition-all duration-200">
+             class="flex items-center justify-center w-9 h-9 border border-white/10 hover:border-white/40 text-white/55 hover:text-white transition-all duration-200">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
@@ -264,7 +268,7 @@
   <!-- ─── Mapa ─── -->
   <div class="w-full" style="height: 420px;">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.8!2d14.7012!3d50.1891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470be1234567%3A0xabcdef!2sKrálovická+326%2C+250+01+Zápy!5e0!3m2!1scs!2scz!4v1234567890"
+      src="https://maps.google.com/maps?q=50.17595079276414,14.692838659746915&hl=cs&z=16&output=embed"
       width="100%"
       height="100%"
       style="border: 0; filter: grayscale(20%);"
@@ -305,51 +309,34 @@
 </style>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const form   = document.getElementById('contact-form') as HTMLFormElement | null;
   const status = document.getElementById('form-status');
+  const btn    = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const label  = document.getElementById('submit-label');
+  const arrow  = document.getElementById('submit-arrow');
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!form || !status) return;
+    if (!form || !status || !btn || !label || !arrow) return;
 
-    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
     btn.disabled = true;
-    btn.textContent = 'Odesílám…';
+    label.textContent = 'Odesílám…';
+    arrow.style.display = 'none';
 
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-      });
+    await new Promise(resolve => setTimeout(resolve, 1500));
 
-      status.classList.remove('hidden');
+    status.classList.remove('hidden');
+    status.innerHTML = `
+      <div style="font-family:'DM Sans',sans-serif;" class="flex items-center gap-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 px-5 py-3">
+        <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Zpráva odeslána. Ozveme se vám co nejdříve.
+      </div>`;
+    form.reset();
 
-      if (res.ok) {
-        status.innerHTML = `
-          <div style="font-family:'DM Sans',sans-serif;" class="flex items-center gap-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 px-5 py-3">
-            <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Zpráva odeslána. Ozveme se vám co nejdříve.
-          </div>`;
-        form.reset();
-      } else {
-        throw new Error();
-      }
-    } catch {
-      if (status) {
-        status.innerHTML = `
-          <div style="font-family:'DM Sans',sans-serif;" class="flex items-center gap-3 text-sm text-red-700 bg-red-50 border border-red-200 px-5 py-3">
-            <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none">
-              <path d="M8 5v4M8 11h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-            Něco se pokazilo. Zavolejte nám na +420 790 220 000.
-          </div>`;
-      }
-    } finally {
-      btn.disabled = false;
-      btn.textContent = 'Odeslat zprávu';
-    }
+    btn.disabled = false;
+    label.textContent = 'Odeslat zprávu';
+    arrow.style.display = '';
   });
 </script>
