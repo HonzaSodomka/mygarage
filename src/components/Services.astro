@@ -1,0 +1,295 @@
+---
+// src/components/Services.astro
+
+const services = [
+  {
+    num: '01', title: 'Geometrie kol',         category: 'Mechanika',    price: 'od 499 Kč',
+    perex: 'Laserová geometrie BEISSBARTH Q-LIGN doporučovaná pro autorizované BMW servisy. Výsledky za 15 minut.',
+    desc: 'Webová databáze továrních hodnot pro všechny značky, kalibrace ADAS systémů. Barevný výstupní protokol v tabulkové i grafické podobě.',
+    prices: [{ label: 'Změření', value: 'od 499 Kč' }, { label: 'Seřízení', value: 'od 1 790 Kč' }],
+    tag: null, featured: false,
+  },
+  {
+    num: '02', title: 'Pneuservis',             category: 'Mechanika',    price: 'od 1 200 Kč',
+    perex: 'Přezouvání a vyvažování kol všech rozměrů až do průměru 23″ včetně RunOnFlat.',
+    desc: 'Přístroje BEISSBARTH/SICAM. Oprava průpichu nebo průrazu. Objednání pneumatik přímo na dílnu s montáží.',
+    prices: [{ label: 'Přezutí vč. vyvážení', value: 'od 1 200 Kč' }],
+    tag: null, featured: false,
+  },
+  {
+    num: '03', title: 'Klimatizace',            category: 'Mechanika',    price: 'od 990 Kč',
+    perex: 'Servis, čištění, dezinfekce a plnění R134a i R1234yf. Certifikovaný personál MŽP.',
+    desc: 'Zkouška těsnosti dusíkem/vodíku 95:5. Výměna kompresoru, kondenzátoru a dalších dílů. Čas plnění cca 60 minut.',
+    prices: [{ label: 'Plnění klimatizace', value: 'od 990 Kč' }],
+    tag: null, featured: false,
+  },
+  {
+    num: '04', title: 'Diagnostika',            category: 'Mechanika',    price: 'od 990 Kč',
+    perex: 'Tovární i multiznačkové přístroje. Přes 40 000 typů vozidel všech značek.',
+    desc: 'Chybové kódy, testování akčních členů, kódování výbavy, servisní intervaly. Online podpora výrobce. VW koncern, Porsche, Mercedes-Benz.',
+    prices: [{ label: 'Diagnostika', value: 'od 990 Kč' }],
+    tag: null, featured: false,
+  },
+  {
+    num: '05', title: 'Příprava na STK',        category: 'Mechanika',    price: 'od 3 490 Kč',
+    perex: 'Zkontrolujeme a připravíme vozidlo tak, aby STK absolvovalo. STK na klíč na přání.',
+    desc: 'Kompletní kontrola před technickou. Na přání vůz převezmeme a absolvujeme STK za vás. Potřebujeme TP a povinnou výbavu.',
+    prices: [{ label: 'Příprava + STK na klíč', value: 'od 3 490 Kč' }],
+    tag: null, featured: false,
+  },
+  {
+    num: '06', title: 'BMW v záruce výrobce',   category: 'Specializace', price: 'od 1 490 Kč',
+    perex: 'BMW AOS Aftersales — servis v tovární záruce se zápisem do ESH. Záruka zachována.',
+    desc: 'Běžný i meziintervalový servis BMW v tovární záruce. Zápis do klíče i ESH. Výhradně originální náhradní díly a spotřební materiál BMW.',
+    prices: [{ label: 'Servis BMW v záruce', value: 'od 1 490 Kč' }],
+    tag: 'AOS', featured: true,
+  },
+  {
+    num: '07', title: 'Poradenství při nákupu', category: 'Specializace', price: 'od 3 000 Kč',
+    perex: 'Komplexní 360° kontrola vozu před koupí, lustrace VIN, zkušební jízda. ČR i zahraničí.',
+    desc: 'Výběr vozu, lustrace VIN, prověření servisní historie. Import ze zahraničí — doprava, dovozová STK, přihlášení.',
+    prices: [{ label: 'Poradenství při nákupu', value: 'od 3 000 Kč' }],
+    tag: null, featured: false,
+  },
+  {
+    num: '08', title: 'Výměna autoskel',        category: 'Karoserie',    price: 'od 1 490 Kč',
+    perex: 'Expresní výměna technologií Spider WRD — textilní vlákno, žádné riziko poškození laku.',
+    desc: 'Originální i prvovýrobní skla. Rychleschnoucí lepidla — odjezd do 2 hodin od nalepení skla.',
+    prices: [{ label: 'Výměna autoskla', value: 'od 1 490 Kč' }],
+    tag: null, featured: false,
+  },
+  {
+    num: '09', title: 'Ochrana podvozku',       category: 'Karoserie',    price: 'od 950 Kč/hod',
+    perex: 'Antikorozní konzervace voskem NBR. Ochrana před solí a vlhkostí. Životnost 3–5 let.',
+    desc: 'Důkladné očištění, demontáž krytů, oblepení karoserie, aplikace voskem. Suchá po 24 hodinách. Doporučuje se obnovit po 3–5 letech.',
+    prices: [{ label: 'Ochrana podvozku', value: 'od 950 Kč/hod' }],
+    tag: null, featured: false,
+  },
+  {
+    num: '10', title: 'Karosářské práce',       category: 'Karoserie',    price: 'od 950 Kč/hod',
+    perex: 'Opravy po havárii, PDR, svařování oceli i hliníku. BMW Repair Stage 1–3 metodika.',
+    desc: 'Vytahování a rovnání dílů, svařování všech materiálů. PDR (Paintless Dent Repair) — promáčkliny bez poškození laku.',
+    prices: [{ label: 'Karosářské práce', value: 'od 950 Kč/hod' }],
+    tag: null, featured: false,
+  },
+  {
+    num: '11', title: 'Autolakovna',            category: 'Karoserie',    price: 'od 3 000 Kč/díl',
+    perex: 'Lakujeme díly i celé karoserie. Standox a BASF Glasurit. Metodika AZT.',
+    desc: 'Od tmelení, broušení, primeru po lak. Celoplošné i lokální lakování. Keramický povlak na přání zákazníka.',
+    prices: [{ label: 'Lakování', value: 'od 3 000 Kč/díl' }],
+    tag: null, featured: false,
+  },
+];
+---
+
+<section id="sluzby" class="bg-white">
+
+  <!-- ─── Heading ─── -->
+  <div class="max-w-7xl mx-auto px-5 lg:px-12 pt-16 lg:pt-24 pb-10 lg:pb-14 border-b border-zinc-100">
+    <div class="grid lg:grid-cols-2 gap-6 lg:gap-20 items-end">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-6 h-px bg-[#E10600]"></div>
+          <span style="font-family:'DM Sans',sans-serif;"
+                class="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">Služby</span>
+        </div>
+        <h1 style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(2.4rem, 4vw, 4.5rem);"
+            class="font-black uppercase leading-[1.05] tracking-tight text-zinc-950">
+          Co pro váš vůz<br/><span class="text-[#00478F]">uděláme.</span>
+        </h1>
+      </div>
+      <div class="flex flex-col gap-4 lg:pb-1">
+        <div class="w-8 h-px bg-zinc-200"></div>
+        <p style="font-family:'DM Sans',sans-serif;"
+           class="text-base lg:text-lg font-light text-zinc-700 leading-relaxed">
+          Kompletní péče o prémiové vozy — od servisu a diagnostiky až po karosářské práce a lakování.
+        </p>
+        <div class="flex gap-3">
+          <a href="/kontakt" style="font-family:'DM Sans',sans-serif;"
+             class="inline-flex items-center gap-2 self-start bg-[#00478F] hover:bg-[#003d7a] text-white text-xs font-medium uppercase tracking-[0.18em] px-7 py-3 transition-colors relative overflow-hidden group">
+            <span class="absolute left-0 inset-y-0 w-[3px] bg-[#E10600]"></span>
+            Objednat servis
+          </a>
+          <a href="https://mygarageautocare.cz/wp-content/uploads/2026/03/CENIK-MG-2026.pdf" target="_blank"
+             style="font-family:'DM Sans',sans-serif;"
+             class="inline-flex items-center gap-2 self-start border border-zinc-300 hover:border-zinc-600 text-zinc-700 text-xs font-medium uppercase tracking-[0.18em] px-5 py-3 transition-colors">
+            Ceník PDF ↓
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Table rows ─── -->
+  <div class="max-w-7xl mx-auto px-5 lg:px-12">
+
+    {['Mechanika & Diagnostika', 'Specializované služby', 'Karoserie & Lak'].map(group => {
+      const items = services.filter(s =>
+        (group === 'Mechanika & Diagnostika' && s.category === 'Mechanika') ||
+        (group === 'Specializované služby' && s.category === 'Specializace') ||
+        (group === 'Karoserie & Lak' && s.category === 'Karoserie')
+      );
+      return (
+        <div class="mt-10 lg:mt-14 first:mt-8">
+          <!-- Group header -->
+          <div class="flex items-center gap-4 mb-1 pb-3 border-b-2 border-zinc-950">
+            <span style="font-family:'Big Shoulders Display',sans-serif;"
+                  class="text-xs font-black uppercase tracking-[0.25em] text-zinc-950">
+              {group}
+            </span>
+            <span style="font-family:'DM Sans',sans-serif;"
+                  class="text-[10px] text-zinc-400 font-medium">
+              {items.length} {items.length === 1 ? 'služba' : items.length < 5 ? 'služby' : 'služeb'}
+            </span>
+          </div>
+
+          {items.map(s => (
+            <div class={`service-row group border-b border-zinc-100 ${s.featured ? 'bg-[#00478F]/[0.03]' : ''}`}>
+              <!-- Collapsed row -->
+              <button
+                class="service-trigger w-full flex items-center gap-4 lg:gap-8 py-5 lg:py-6 text-left"
+                aria-expanded="false"
+              >
+                <span style="font-family:'DM Sans',sans-serif;"
+                      class="text-xs text-zinc-300 tabular-nums w-5 flex-shrink-0">
+                  {s.num}
+                </span>
+
+                <span style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(1.1rem, 1.6vw, 1.45rem);"
+                      class={`font-black uppercase leading-none tracking-tight flex-1 transition-colors ${s.featured ? 'text-[#00478F]' : 'text-zinc-950 group-hover:text-[#00478F]'}`}>
+                  {s.title}
+                  {s.featured && (
+                    <span style="font-family:'DM Sans',sans-serif;"
+                          class="inline-block ml-2 text-[8px] font-bold uppercase tracking-[0.15em] bg-[#00478F] text-white px-1.5 py-0.5 align-middle">
+                      AOS
+                    </span>
+                  )}
+                </span>
+
+                <!-- Perex — desktop, only when collapsed -->
+                <span style="font-family:'DM Sans',sans-serif;"
+                      class="service-perex hidden lg:block text-sm font-light text-zinc-400 max-w-[300px] text-right leading-snug flex-shrink-0 transition-opacity">
+                  {s.perex}
+                </span>
+
+                <!-- Chevron box -->
+                <div class={`w-7 h-7 flex items-center justify-center border flex-shrink-0 transition-all duration-200 ${s.featured ? 'border-[#00478F]/30 text-[#00478F]' : 'border-zinc-200 text-zinc-400 group-hover:border-[#00478F] group-hover:text-[#00478F]'}`}>
+                  <svg class="service-chevron w-3 h-3 transition-transform duration-300" viewBox="0 0 12 12" fill="none">
+                    <path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </button>
+
+              <!-- Expanded body -->
+              <div class="service-body overflow-hidden" style="max-height:0; transition: max-height 0.35s ease;">
+                <div class="grid lg:grid-cols-5 gap-6 lg:gap-10 pb-7 pl-9">
+
+                  <!-- Popis — 3 sloupce -->
+                  <div class="lg:col-span-3 flex flex-col gap-3">
+                    <p style="font-family:'DM Sans',sans-serif;"
+                       class="text-sm font-light text-zinc-500 border-l-2 border-[#E10600] pl-3 leading-relaxed">
+                      {s.perex}
+                    </p>
+                    <p style="font-family:'DM Sans',sans-serif;"
+                       class="text-sm text-zinc-700 leading-relaxed">
+                      {s.desc}
+                    </p>
+                  </div>
+
+                  <!-- Ceny + CTA — 2 sloupce -->
+                  <div class="lg:col-span-2 flex flex-col gap-4">
+                    <div class="flex flex-col">
+                      {s.prices.map(p => (
+                        <div class="flex items-baseline justify-between py-3 border-b border-zinc-100 last:border-0 gap-4">
+                          <span style="font-family:'DM Sans',sans-serif;"
+                                class="text-xs font-medium uppercase tracking-[0.15em] text-zinc-500">
+                            {p.label}
+                          </span>
+                          <span style="font-family:'Big Shoulders Display',sans-serif;"
+                                class="text-xl font-black uppercase text-zinc-950 whitespace-nowrap">
+                            {p.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <a href="/kontakt" style="font-family:'DM Sans',sans-serif;"
+                       class="inline-flex items-center gap-2 self-start bg-[#00478F] hover:bg-[#003d7a] text-white text-[10px] font-medium uppercase tracking-[0.18em] px-5 py-2.5 transition-colors relative overflow-hidden group/btn">
+                      <span class="absolute left-0 inset-y-0 w-[3px] bg-[#E10600]"></span>
+                      Objednat
+                      <svg class="w-3 h-3 transition-transform duration-200 group-hover/btn:translate-x-1" viewBox="0 0 12 12" fill="none">
+                        <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    })}
+  </div>
+
+  <!-- ─── Bottom CTA ─── -->
+  <div class="max-w-7xl mx-auto px-5 lg:px-12 py-12 lg:py-16">
+    <div class="border border-zinc-200 relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-[3px] h-full bg-[#E10600]"></div>
+      <div class="px-8 lg:px-14 py-10 lg:py-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div class="flex flex-col gap-2">
+          <p style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(1.4rem, 2.5vw, 2.2rem);"
+             class="font-black uppercase text-zinc-950 leading-tight">
+            Nenašli jste co hledáte?
+          </p>
+          <p style="font-family:'DM Sans',sans-serif;" class="text-sm text-zinc-500">
+            Kontaktujte nás — rádi připravíme individuální nabídku.
+          </p>
+        </div>
+        <a href="/kontakt" style="font-family:'DM Sans',sans-serif;"
+           class="inline-flex items-center gap-2 flex-shrink-0 bg-[#00478F] hover:bg-[#003d7a] text-white text-xs font-medium uppercase tracking-[0.18em] px-7 py-3.5 transition-colors relative overflow-hidden group">
+          <span class="absolute left-0 inset-y-0 w-[3px] bg-[#E10600]"></span>
+          Kontaktovat nás
+          <svg class="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 12 12" fill="none">
+            <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  document.querySelectorAll('.service-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const row = btn.closest('.service-row');
+      const body = row?.querySelector('.service-body') as HTMLElement | null;
+      const chevron = btn.querySelector('.service-chevron');
+      const perex = btn.querySelector('.service-perex') as HTMLElement | null;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Zavři ostatní
+      document.querySelectorAll('.service-trigger[aria-expanded="true"]').forEach(other => {
+        if (other === btn) return;
+        other.setAttribute('aria-expanded', 'false');
+        const ob = other.closest('.service-row')?.querySelector('.service-body') as HTMLElement | null;
+        if (ob) ob.style.maxHeight = '0';
+        other.querySelector('.service-chevron')?.classList.remove('rotate-180');
+        const op = other.querySelector('.service-perex') as HTMLElement | null;
+        if (op) op.style.opacity = '1';
+      });
+
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        if (body) body.style.maxHeight = '0';
+        chevron?.classList.remove('rotate-180');
+        if (perex) perex.style.opacity = '1';
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        if (body) body.style.maxHeight = body.scrollHeight + 'px';
+        chevron?.classList.add('rotate-180');
+        if (perex) perex.style.opacity = '0';
+      }
+    });
+  });
+</script>

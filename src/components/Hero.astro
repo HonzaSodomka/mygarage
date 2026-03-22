@@ -1,0 +1,188 @@
+---
+// src/components/Hero.astro
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<section id="hero" class="bg-white border-b border-zinc-100 overflow-hidden" style="isolation: isolate;">
+
+  <!-- ═══ DESKTOP ═══ -->
+  <div id="hero-desktop" class="hidden md:flex" style="min-height: 580px;">
+
+    <!-- Levá část — text -->
+    <div class="flex flex-col justify-between py-14 pl-12 lg:pl-20 pr-10 flex-shrink-0" style="width: 46%;">
+
+      <div class="flex flex-col gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-6 h-px bg-[#E10600]"></div>
+          <span style="font-family:'DM Sans',sans-serif;"
+                class="text-[10px] font-medium uppercase tracking-[0.28em] text-zinc-500">
+            Nezávislý prémiový autoservis · Zápy
+          </span>
+        </div>
+
+        <h1 style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(3.4rem, 5.5vw, 6.5rem);"
+            class="font-black uppercase leading-[1.05] tracking-tight text-zinc-950">
+          Prémiový<br/>
+          servis.<br/>
+          <span class="text-[#00478F]">Bez&nbsp;přirážky.</span>
+        </h1>
+
+        <div class="w-8 h-px bg-zinc-200"></div>
+
+        <p style="font-family:'DM Sans',sans-serif;"
+           class="text-[15px] font-light text-zinc-600 leading-relaxed max-w-[280px]">
+          BMW, Mercedes-Benz, Porsche a VW&nbsp;koncern — zázemí autorizovaného servisu bez dealerské přirážky.
+        </p>
+
+        <div class="flex gap-3 pt-1 items-center">
+          <a href="#kontakt"
+             style="font-family:'DM Sans',sans-serif;"
+             class="inline-flex items-center bg-[#00478F] hover:bg-[#003d7a] text-white text-[11px] font-medium uppercase tracking-[0.18em] px-7 py-3.5 transition-colors relative overflow-hidden">
+            <span class="absolute left-0 inset-y-0 w-[3px] bg-[#E10600]"></span>
+            Objednat servis
+          </a>
+
+          <!-- Sekundární CTA — outline s šipkou -->
+          <a href="#sluzby"
+             style="font-family:'DM Sans',sans-serif;"
+             class="cta-secondary inline-flex items-center gap-3 border border-zinc-400 hover:border-zinc-950 hover:text-zinc-950 text-zinc-800 text-[11px] font-medium uppercase tracking-[0.18em] px-6 py-3.5 transition-all duration-200 group">
+            Naše služby
+            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex gap-10 pt-6 border-t border-zinc-100">
+        {[['15+','let zkušeností'],['OEM','diagnostika'],['Záruka','zachována']].map(([v,l]) => (
+          <div>
+            <div style="font-family:'Big Shoulders Display',sans-serif;"
+                 class="text-[22px] font-black uppercase text-zinc-900 leading-none">{v}</div>
+            <div style="font-family:'DM Sans',sans-serif;"
+                 class="text-[9px] font-medium uppercase tracking-[0.2em] text-zinc-500 mt-1">{l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Pravá část — fotky -->
+    <div class="flex-1 relative" style="clip-path: polygon(6% 0%, 100% 0%, 100% 100%, 0% 100%); isolation: isolate;">
+      <div class="absolute inset-0 bg-zinc-950 z-0"></div>
+
+      <div class="absolute inset-y-0 left-0 z-10" style="width: 60%;">
+        <img src="/hero.jpg" alt="BMW v servisu My Garage"
+             class="w-full h-full object-cover opacity-90" />
+        <div class="absolute inset-y-0 right-0 w-6 bg-gradient-to-r from-transparent to-zinc-950/80"></div>
+      </div>
+
+      <div class="absolute inset-y-0 right-0 flex flex-col z-10" style="width: 40%; gap: 3px;">
+        <div class="flex-1 overflow-hidden">
+          <img src="/hero1.jpg" alt="OEM diagnostika"
+               class="w-full h-full object-cover opacity-85" />
+        </div>
+        <div class="flex-1 overflow-hidden">
+          <img src="/hero2.jpg" alt="Motor detail"
+               class="w-full h-full object-cover opacity-85" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MOBIL ═══ -->
+  <div id="hero-mobile" class="flex md:hidden flex-col" style="min-height: 620px;">
+
+    <div class="relative flex-shrink-0" style="height: 40%;">
+      <div class="absolute inset-0 flex gap-0.5">
+        <div class="flex-[3] overflow-hidden">
+          <img src="/hero.jpg" alt="Servis BMW" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-[2] flex flex-col gap-0.5">
+          <div class="flex-1 overflow-hidden">
+            <img src="/hero1.jpg" alt="Diagnostika" class="w-full h-full object-cover" />
+          </div>
+          <div class="flex-1 overflow-hidden">
+            <img src="/hero2.jpg" alt="Motor" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent"></div>
+    </div>
+
+    <div class="flex flex-col justify-between flex-1 px-5 pb-6 pt-4">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3">
+          <div class="h-px w-6 bg-[#E10600]"></div>
+          <span style="font-family:'DM Sans',sans-serif;"
+                class="text-[9px] font-medium tracking-[0.25em] uppercase text-zinc-500">
+            Prémiový autoservis · Zápy
+          </span>
+        </div>
+        <h1 style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(2.6rem, 10vw, 3.4rem);"
+            class="font-black uppercase leading-[1.05] tracking-tight text-zinc-950">
+          Prémiový<br/>servis.<br/><span class="text-[#00478F]">Bez přirážky.</span>
+        </h1>
+        <p style="font-family:'DM Sans',sans-serif;"
+           class="text-[13px] font-light text-zinc-600 leading-relaxed">
+          BMW, Mercedes-Benz, Porsche a VW&nbsp;koncern — bez dealerské přirážky.
+        </p>
+        <div class="flex gap-2.5">
+          <a href="#kontakt"
+             style="font-family:'DM Sans',sans-serif;"
+             class="flex-1 text-center bg-[#00478F] text-white text-[10px] font-medium tracking-[0.15em] uppercase py-3.5 relative overflow-hidden">
+            <span class="absolute left-0 inset-y-0 w-[3px] bg-[#E10600]"></span>
+            Objednat servis
+          </a>
+          <a href="#sluzby"
+             style="font-family:'DM Sans',sans-serif;"
+             class="flex-1 text-center border border-zinc-300 text-zinc-700 text-[10px] font-medium tracking-[0.15em] uppercase py-3.5">
+            Naše služby
+          </a>
+        </div>
+      </div>
+
+      <div class="flex gap-6 pt-5 border-t border-zinc-100">
+        {[['15+','let zkušeností'],['OEM','diagnostika'],['Záruka','zachována']].map(([v,l]) => (
+          <div>
+            <div style="font-family:'Big Shoulders Display',sans-serif;"
+                 class="text-[17px] font-black uppercase text-zinc-900 leading-none">{v}</div>
+            <div style="font-family:'DM Sans',sans-serif;"
+                 class="text-[8px] font-medium uppercase tracking-[0.18em] text-zinc-500 mt-0.5">{l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+  function setHeroHeight() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const headerH  = header.getBoundingClientRect().height;
+    const available = window.innerHeight - headerH;
+
+    const desktop = document.getElementById('hero-desktop');
+    const mobile  = document.getElementById('hero-mobile');
+
+    if (desktop) desktop.style.height = available >= 580 ? `${available}px` : 'auto';
+    if (mobile)  mobile.style.height  = `${Math.max(available, 580)}px`;
+  }
+
+  setHeroHeight();
+  window.addEventListener('load', setHeroHeight);
+
+  let lastW = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (window.innerWidth !== lastW) { lastW = window.innerWidth; setHeroHeight(); }
+  });
+</script>
+
+<style>
+
+</style>
