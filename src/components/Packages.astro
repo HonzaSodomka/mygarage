@@ -212,12 +212,7 @@ const packages = [
         if (count) count.style.opacity = '1';
       } else {
         btn.setAttribute('aria-expanded', 'true');
-        if (body) {
-          body.style.maxHeight = 'none';
-          const h = body.scrollHeight;
-          body.style.maxHeight = '0';
-          requestAnimationFrame(() => { body.style.maxHeight = h + 'px'; });
-        }
+        if (body) body.style.maxHeight = body.scrollHeight + 'px';
         const svg = chevron?.querySelector('svg') as HTMLElement | null;
         if (svg) svg.style.transform = 'rotate(180deg)';
         if (count) count.style.opacity = '0';
