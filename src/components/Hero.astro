@@ -160,13 +160,15 @@
 </section>
 
 <script>
+  // Výška se nastavuje jen jednou při načtení a pak pouze při změně ŠÍŘKY.
+  // Scroll (který schová/zobrazí lištu prohlížeče) šířku nemění
+  // — stránka proto nepřeskakuje.
   function setHeroHeight() {
     const header = document.querySelector('header');
     if (!header) return;
     const headerH   = header.getBoundingClientRect().height;
     const available = window.innerHeight - headerH;
 
-    // Na landscape mobilu (šířka > výška) nenutíme velkou min-výšku
     const isLandscape = window.matchMedia('(orientation: landscape)').matches;
 
     const desktop = document.getElementById('hero-desktop');
@@ -182,13 +184,13 @@
   setHeroHeight();
   window.addEventListener('load', setHeroHeight);
 
+  // Sledujeme pouze šířku — při scrollu se šířka nemění,
+  // takže schovávání URL lišty výšku nepřepočítá.
   let lastW = window.innerWidth;
-  let lastH = window.innerHeight;
+
   window.addEventListener('resize', () => {
-    // Reaguj i na otočení zařízení — mění se obě dimenze
-    if (window.innerWidth !== lastW || window.innerHeight !== lastH) {
+    if (window.innerWidth !== lastW) {
       lastW = window.innerWidth;
-      lastH = window.innerHeight;
       setHeroHeight();
     }
   });
