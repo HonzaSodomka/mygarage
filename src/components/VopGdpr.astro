@@ -1,0 +1,295 @@
+---
+// src/components/VopGdpr.astro
+---
+
+<section class="bg-white">
+  <div class="max-w-3xl mx-auto px-5 lg:px-0 pt-16 lg:pt-24 pb-20 lg:pb-32">
+
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-3 mb-10">
+      <div class="w-6 h-px bg-[#E10600]"></div>
+      <span style="font-family:'DM Sans',sans-serif;"
+            class="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">
+        Právní dokumenty
+      </span>
+    </div>
+
+    <!-- ════ VOP ════ -->
+    <div id="vop" class="mb-20">
+
+      <h1 style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(2rem, 4vw, 3.2rem);"
+          class="font-black uppercase leading-tight tracking-tight text-zinc-950 mb-2">
+        Všeobecné obchodní podmínky
+      </h1>
+      <p style="font-family:'DM Sans',sans-serif;"
+         class="text-sm text-zinc-500 mb-10">
+        Pro provádění prací a oprav na motorových vozidlech · platnost od 1. 1. 2026
+      </p>
+
+      <div class="flex flex-col gap-8">
+        {[
+          {
+            title: '1. Úvodní ustanovení',
+            items: [
+              'Tyto Všeobecné obchodní podmínky pro provádění prací a oprav na motorových vozidlech, jejich příslušenství a součástech (dále jen „VOP") upravují základní obchodní vztahy mezi společností MY GARAGE Auto Care s.r.o., IČO: 107 19 717, se sídlem Praha 5, Holyňská 429/5, PSČ 152 00 (dále jen „autoservis") a zadavatelem zakázky (dále jen „zákazník").',
+              'Zákazník podpisem zakázkového listu potvrzuje, že se s těmito VOP seznámil, souhlasí s nimi a považuje je za závazné pro všechna plnění poskytovaná autoservisem.',
+            ],
+          },
+          {
+            title: '2. Uzavření smlouvy',
+            items: [
+              'Podpisem zakázkového listu dochází k uzavření smlouvy o dílo ve smyslu § 2586 a násl. zákona č. 89/2012 Sb., občanský zákoník.',
+              'Dohoda o provedení prací opravňuje autoservis k udělování dílčích zakázek subdodavatelům, k provádění zkušebních jízd a k přepravě vozidla, jehož se práce týkají.',
+            ],
+          },
+          {
+            title: '3. Rozsah prací a cena',
+            items: [
+              'V zakázkovém listu je uveden rozsah prací a odhadovaná cena zakázky.',
+              'V případě, že bude nutné provést práce nad rámec zakázky nebo že cena zakázky bude o více než 10 % vyšší, než cena uvedená v zakázkovém listu, vyžádá si autoservis souhlas zákazníka, a to formou e-mailu nebo SMS zprávy.',
+            ],
+          },
+          {
+            title: '4. Předání a převzetí vozidla',
+            items: [
+              'Předání předmětu zakázky a jeho převzetí zákazníkem se provádí v provozovně autoservisu, není-li dohodnuto jinak.',
+              'Zákazník je povinen převzít vozidlo nejpozději do tří pracovních dnů ode dne oznámení autoservisu o dokončení zakázky.',
+              'Od čtvrtého pracovního dne je autoservis oprávněn účtovat zákazníkovi parkovné ve výši 250 Kč bez DPH za každý započatý den prodlení.',
+              'Po dobu prodlení s převzetím vozidla nese zákazník nebezpečí škody, nahodilé zkázy a nahodilého zhoršení na vozidle.',
+            ],
+          },
+          {
+            title: '5. Platební podmínky',
+            items: [
+              'Cena zakázky je splatná ihned při převzetí vozidla zákazníkem, nestanoví-li daňový doklad pozdější datum splatnosti.',
+              'Autoservis je oprávněn požadovat přiměřenou zálohu na cenu zakázky.',
+              'V případě prodlení zákazníka s úhradou ceny zakázky je zákazník povinen zaplatit autoservisu smluvní pokutu ve výši 0,1 % z dlužné částky za každý započatý den prodlení, nejvýše však do celkové výše 20 % ceny zakázky.',
+              'Všechny náhradní díly a příslušenství zůstávají ve vlastnictví autoservisu až do úplného uhrazení ceny zakázky.',
+            ],
+          },
+          {
+            title: '6. Zadržovací právo',
+            items: [
+              'Autoservis je oprávněn zadržet vozidlo k zajištění své splatné pohledávky vůči zákazníkovi.',
+              'Zadržovací právo lze uplatnit i vzhledem k pohledávkám z dříve provedených zakázek, pokud mají souvislost s předmětem zakázky.',
+            ],
+          },
+          {
+            title: '7. Odpovědnost a stav vozidla',
+            items: [
+              'Zákazník předává vozidlo autoservisu bez movitých věcí, které nejsou součástí vozidla. Autoservis neodpovídá za jejich ztrátu či poškození.',
+              'Autoservis odpovídá za škodu na vozidle po dobu provádění zakázky, včetně zkušebních jízd a převozů.',
+              'U vozidel starších deseti let bere zákazník na vědomí zvýšené riziko poškození degradovaných dílů v důsledku jejich stáří a opotřebení.',
+            ],
+          },
+          {
+            title: '8. Odstoupení od zakázky a přerušení prací',
+            items: [
+              'Zákazník je oprávněn od zakázky odstoupit pouze do zahájení prací. V takovém případě uhradí autoservisu vzniklé náklady.',
+              'Odstoupí-li zákazník po zahájení prací, je povinen uhradit cenu již provedených prací, diagnostiku a objednané díly.',
+              'Je-li vozidlo rozebráno, přebírá jej zákazník ve stavu odpovídajícím rozsahu dosud provedených prací.',
+              'Autoservis je oprávněn přerušit zakázku zejména při neposkytnutí součinnosti nebo neuhrazení zálohy.',
+            ],
+          },
+          {
+            title: '9. Reklamace a odpovědnost za vady',
+            items: [
+              'Autoservis odpovídá za vady díla dle platných právních předpisů.',
+              'Reklamace musí být uplatněna bez zbytečného odkladu a výhradně u autoservisu.',
+              'Zákazník je povinen umožnit posouzení reklamované vady. Oprava u třetí osoby bez souhlasu autoservisu vede k zániku nároku z odpovědnosti za vady.',
+              'Autoservis neodpovídá za vady vzniklé běžným opotřebením, nesprávným užíváním, zásahem třetí osoby nebo použitím dílů dodaných zákazníkem.',
+            ],
+          },
+          {
+            title: '10. Diagnostika a skryté vady',
+            items: [
+              'Diagnostika je samostatnou zpoplatněnou službou.',
+              'Výsledek diagnostiky není garancí celkového technického stavu vozidla.',
+              'Autoservis neodpovídá za skryté vady, které nebylo možné při diagnostice odhalit.',
+            ],
+          },
+          {
+            title: '11. Použité pneumatiky',
+            items: [
+              'Pokud autoservis prodá zákazníkovi nové pneumatiky a provede jejich montáž, převezme použité pneumatiky bezplatně v odpovídajícím množství.',
+              'Pokud autoservis provádí pouze montáž pneumatik dodaných zákazníkem, je převzetí použitých pneumatik možné pouze za poplatek dle aktuálního ceníku, případně může být zákazník odkázán na místo zpětného odběru.',
+              'Nevyžádá-li si zákazník vydání použitých pneumatik, má se za to, že souhlasí s jejich ponecháním autoservisu.',
+            ],
+          },
+          {
+            title: '12. Zastupování zákazníka při pojistné události',
+            items: [
+              'Autoservis může zákazníkovi na jeho žádost poskytnout samostatnou doplňkovou službu spočívající v administrativním a organizačním zastupování zákazníka při jednání s pojišťovnou v souvislosti s pojistnou událostí.',
+              'Tato služba není součástí opravy vozidla ani smlouvy o dílo a je poskytována na základě samostatného souhlasu zákazníka.',
+              'Služba zastupování při pojistné události není podmínkou uzavření smlouvy o opravě ani provedení opravy vozidla.',
+              'Cena za tuto službu je stanovena paušální částkou dle aktuálního ceníku autoservisu, je zákazníkovi sdělena předem a není závislá na výši pojistného plnění ani na rozhodnutí pojišťovny.',
+              'Zákazník bere na vědomí, že náklady na tuto službu nejsou součástí pojistného plnění, nejsou hrazeny pojišťovnou a jsou účtovány přímo zákazníkovi.',
+              'Podrobnosti o rozsahu služby a její ceně mohou být upraveny v samostatném písemném souhlasu zákazníka.',
+            ],
+          },
+          {
+            title: '13. Ochrana osobních údajů (GDPR)',
+            items: [
+              'Autoservis zpracovává osobní údaje zákazníků v rozsahu nezbytném pro plnění smlouvy a zákonných povinností.',
+              'Podrobné informace jsou uvedeny v dokumentu „Zásady zpracování osobních údajů" níže na této stránce.',
+            ],
+          },
+          {
+            title: '14. Závěrečná ustanovení',
+            items: [
+              'Tyto VOP jsou nedílnou součástí každé smlouvy o dílo.',
+              'Odchylná ujednání v zakázkovém listu mají přednost před VOP.',
+              'Právní vztahy se řídí právním řádem České republiky.',
+              'Tyto VOP nabývají platnosti a účinnosti dnem 1. 1. 2026.',
+            ],
+          },
+        ].map(sec => (
+          <div class="border-t border-zinc-100 pt-6">
+            <h2 style="font-family:'DM Sans',sans-serif;"
+                class="text-sm font-semibold text-zinc-900 mb-3">
+              {sec.title}
+            </h2>
+            <div class="flex flex-col gap-2">
+              {sec.items.map((item, idx) => (
+                <p style="font-family:'DM Sans',sans-serif;"
+                   class="text-sm text-zinc-600 leading-relaxed">
+                  <span class="text-zinc-400 mr-2 tabular-nums">{sec.title.split('.')[0]}.{idx + 1}</span>{item}
+                </p>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Oddělovač -->
+    <div class="h-px bg-zinc-200 mb-20"></div>
+
+    <!-- ════ GDPR ════ -->
+    <div id="gdpr">
+
+      <h1 style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(2rem, 4vw, 3.2rem);"
+          class="font-black uppercase leading-tight tracking-tight text-zinc-950 mb-2">
+        Zásady zpracování osobních údajů
+      </h1>
+      <p style="font-family:'DM Sans',sans-serif;"
+         class="text-sm text-zinc-500 mb-10">
+        Informace dle nařízení GDPR (EU) 2016/679 · platnost od 1. 1. 2026
+      </p>
+
+      <div class="flex flex-col gap-8">
+        {[
+          {
+            title: '1. Správce osobních údajů',
+            intro: null,
+            items: [
+              'MY GARAGE Auto Care s.r.o., IČO: 107 19 717, sídlo: Holyňská 429/5, 152 00 Praha 5 (dále jen „správce").',
+            ],
+          },
+          {
+            title: '2. Rozsah zpracovávaných osobních údajů',
+            intro: 'Správce zpracovává zejména tyto osobní údaje zákazníků:',
+            items: [
+              'identifikační údaje (jméno, příjmení, obchodní firma, IČO)',
+              'kontaktní údaje (telefon, e-mail, adresa)',
+              'údaje o motorovém vozidle (SPZ, VIN, typ vozidla)',
+              'údaje o zakázkách, opravách a poskytovaných službách',
+              'platební a fakturační údaje',
+              'komunikaci se zákazníkem',
+            ],
+          },
+          {
+            title: '3. Účely zpracování osobních údajů',
+            intro: 'Osobní údaje jsou zpracovávány za účelem:',
+            items: [
+              'uzavření a plnění smlouvy o dílo (zakázky v autoservisu)',
+              'vedení evidence zakázek a zákazníků',
+              'komunikace se zákazníkem',
+              'plnění zákonných povinností (zejména účetních a daňových)',
+              'ochrany oprávněných zájmů správce (např. uplatňování nároků, reklamace, evidence pohledávek)',
+            ],
+          },
+          {
+            title: '4. Právní základ zpracování',
+            intro: 'Osobní údaje jsou zpracovávány na základě:',
+            items: [
+              'plnění smlouvy podle čl. 6 odst. 1 písm. b) GDPR',
+              'plnění právní povinnosti podle čl. 6 odst. 1 písm. c) GDPR',
+              'oprávněného zájmu správce podle čl. 6 odst. 1 písm. f) GDPR',
+              'Souhlas zákazníka se zpracováním osobních údajů není vyžadován, pokud právní předpisy nestanoví jinak.',
+            ],
+          },
+          {
+            title: '5. Doba uchování osobních údajů',
+            intro: 'Osobní údaje jsou uchovávány:',
+            items: [
+              'po dobu trvání smluvního vztahu',
+              'po dobu nezbytnou k plnění zákonných povinností (zejména dle daňových a účetních předpisů)',
+              'po dobu trvání oprávněného zájmu správce (např. možnost uplatnění nároků)',
+            ],
+          },
+          {
+            title: '6. Příjemci osobních údajů',
+            intro: 'Osobní údaje mohou být v nezbytném rozsahu zpřístupněny:',
+            items: [
+              'účetním a daňovým poradcům',
+              'subdodavatelům autoservisu',
+              'poskytovatelům IT služeb',
+              'orgánům veřejné moci, pokud to vyžaduje právní předpis',
+              'Osobní údaje nejsou předávány do třetích zemí mimo EU.',
+            ],
+          },
+          {
+            title: '7. Práva subjektů údajů',
+            intro: 'Zákazník má zejména právo:',
+            items: [
+              'na přístup ke svým osobním údajům',
+              'na jejich opravu nebo doplnění',
+              'na výmaz osobních údajů, jsou-li splněny zákonné podmínky',
+              'na omezení zpracování',
+              'vznést námitku proti zpracování',
+              'podat stížnost u dozorového úřadu — Úřad pro ochranu osobních údajů',
+            ],
+          },
+          {
+            title: '8. Kontakt pro uplatnění práv',
+            intro: 'Práva lze uplatnit:',
+            items: [
+              'písemně na adresu sídla správce: Holyňská 429/5, 152 00 Praha 5',
+              'e-mailem: info@mygarageautocare.cz',
+            ],
+          },
+          {
+            title: '9. Závěrečná ustanovení',
+            intro: null,
+            items: [
+              'Tyto zásady zpracování osobních údajů jsou platné a účinné od 1. 1. 2026 a jsou k dispozici v provozovně autoservisu a na webových stránkách správce.',
+            ],
+          },
+        ].map(sec => (
+          <div class="border-t border-zinc-100 pt-6">
+            <h2 style="font-family:'DM Sans',sans-serif;"
+                class="text-sm font-semibold text-zinc-900 mb-3">
+              {sec.title}
+            </h2>
+            {sec.intro && (
+              <p style="font-family:'DM Sans',sans-serif;"
+                 class="text-sm text-zinc-600 leading-relaxed mb-2">
+                {sec.intro}
+              </p>
+            )}
+            <div class="flex flex-col gap-2">
+              {sec.items.map(item => (
+                <p style="font-family:'DM Sans',sans-serif;"
+                   class="text-sm text-zinc-600 leading-relaxed pl-4 border-l border-zinc-200">
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
