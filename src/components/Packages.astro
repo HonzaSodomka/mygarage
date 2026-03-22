@@ -68,16 +68,17 @@ const packages = [
            class="text-base lg:text-lg font-light text-zinc-700 leading-relaxed">
           Připravili jsme přehledné servisní balíčky pro vozy Škoda a Volkswagen. Vyberte si rozsah servisu podle potřeby vašeho vozu.
         </p>
-        <div class="flex gap-3">
+        <!-- flex-wrap + whitespace-nowrap na obou tlačítkách -->
+        <div class="flex flex-wrap gap-3">
           <a href="/kontakt"
              style="font-family:'DM Sans',sans-serif;"
-             class="inline-flex items-center gap-2 self-start bg-[#00478F] hover:bg-[#003d7a] text-white text-xs font-medium uppercase tracking-[0.18em] px-7 py-3 transition-colors relative overflow-hidden group">
+             class="inline-flex items-center gap-2 self-start bg-[#00478F] hover:bg-[#003d7a] text-white text-xs font-medium uppercase tracking-[0.18em] px-7 py-3 whitespace-nowrap transition-colors relative overflow-hidden group">
             <span class="absolute left-0 inset-y-0 w-[3px] bg-[#E10600]"></span>
             Objednat servis
           </a>
           <a href="tel:+420790220000"
              style="font-family:'DM Sans',sans-serif;"
-             class="inline-flex items-center gap-2 self-start border border-zinc-300 hover:border-zinc-600 text-zinc-700 text-xs font-medium uppercase tracking-[0.18em] px-6 py-3 transition-colors">
+             class="inline-flex items-center gap-2 self-start border border-zinc-300 hover:border-zinc-600 text-zinc-700 text-xs font-medium uppercase tracking-[0.18em] px-6 py-3 whitespace-nowrap transition-colors">
             +420 790 220 000
           </a>
         </div>
@@ -96,7 +97,6 @@ const packages = [
             class="pkg-trigger w-full flex items-center gap-4 lg:gap-8 py-5 lg:py-6 border-t border-zinc-100 text-left group"
             aria-expanded="false"
           >
-            <!-- Dekorativní ID — záměrně ztlumené, info je v titulu -->
             <span style="font-family:'Big Shoulders Display',sans-serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem);"
                   class="font-black uppercase text-zinc-200 group-hover:text-[#00478F] transition-colors duration-150 w-14 lg:w-20 flex-shrink-0 leading-none tabular-nums">
               {pkg.id}
@@ -115,7 +115,6 @@ const packages = [
               )}
             </div>
 
-            <!-- zinc-500 = 4.58:1 ✅ (bylo zinc-400 = 2.57:1 ❌) -->
             <span style="font-family:'DM Sans',sans-serif;"
                   class="pkg-count hidden lg:block text-xs font-medium text-zinc-500 flex-shrink-0 transition-opacity duration-200">
               {pkg.items.length} položek

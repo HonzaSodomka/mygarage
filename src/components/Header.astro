@@ -10,7 +10,6 @@ const navItems = [
 
 const currentPath = Astro.url.pathname;
 
-// Přesná shoda pro homepage, prefix match pro ostatní
 function isActive(href: string): boolean {
   if (href === '/') return currentPath === '/';
   return currentPath === href || currentPath.startsWith(href + '/');
@@ -64,14 +63,24 @@ function isActive(href: string): boolean {
       </a>
     </div>
 
-    <button id="mobile-menu-btn" class="lg:hidden p-2 text-zinc-900 hover:text-[#E10600]" aria-label="Otevřít menu">
-      <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-      <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 hidden">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-      </svg>
-    </button>
+    <!-- Mobilní pravý roh: telefon + hamburger -->
+    <div class="flex items-center gap-1 lg:hidden">
+      <a href="tel:+420790220000"
+         class="p-2 text-zinc-700 hover:text-[#00478F] transition-colors"
+         aria-label="Zavolat">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.48-4.08-7.074-6.97l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+        </svg>
+      </a>
+      <button id="mobile-menu-btn" class="p-2 text-zinc-900 hover:text-[#E10600]" aria-label="Otevřít menu">
+        <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 hidden">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
   </div>
 
   <div id="mobile-menu" class="lg:hidden absolute w-full left-0 top-full bg-white border-t border-zinc-100 shadow-2xl transition-all duration-300 ease-out origin-top -translate-y-4 opacity-0 pointer-events-none z-10">
@@ -108,16 +117,26 @@ function isActive(href: string): boolean {
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
 
+  function closeMenu() {
+    menu?.classList.add('-translate-y-4', 'opacity-0', 'pointer-events-none');
+    menu?.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+    iconOpen?.classList.remove('hidden');
+    iconClose?.classList.add('hidden');
+  }
+
   btn?.addEventListener('click', () => {
     const isClosed = menu?.classList.contains('opacity-0');
     if (isClosed) {
       menu?.classList.remove('-translate-y-4', 'opacity-0', 'pointer-events-none');
       menu?.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      iconOpen?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
     } else {
-      menu?.classList.add('-translate-y-4', 'opacity-0', 'pointer-events-none');
-      menu?.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      closeMenu();
     }
-    iconOpen?.classList.toggle('hidden');
-    iconClose?.classList.toggle('hidden');
+  });
+
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
 </script>
